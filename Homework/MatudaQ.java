@@ -352,7 +352,6 @@ public class MatudaQ{
 		System.out.printf("正解!%d回で正解しました。%n",count);
 	}
 }
-*/
 //11/6-1
 import java.util.*;
 public class MatudaQ{
@@ -371,7 +370,182 @@ public class MatudaQ{
 		}
 	}
 }
-/*
+//11/6-2
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		int score;
+		while(true){
+			System.out.print("何点>");
+			score = new Scanner(System.in).nextInt();
+			if(score < 0 || score > 100){
+				System.out.print("点数は0から100です");
+			}else{
+				break;
+			}
+		}
+			for(int i = 1; i <= score; i++){
+				System.out.print('*');
+				if(i % 5 == 0){
+				System.out.print('|');
+				}
+			}
+	}
+}
+//11/6-3
+public class MatudaQ{
+	public static void main(String[] args){
+		System.out.print("G|");
+		int score;
+		int gScore = 0;
+		int tScore = 0;
+		for(int i = 0; i < 2; i++){
+			if (i == 1){
+				System.out.print("T|");
+			}
+			for(int j = 1; j < 10; j++){
+				int num = 0;
+				int ran = new java.util.Random().nextInt(100)+1;
+				if(ran >= 1 && ran <= 70){
+					num = 0;
+				}else if(ran >= 71 && ran <= 90){
+					num = 1;
+				}else if(ran >= 91 && ran <= 95){
+					num = 2;
+				}else if(ran >= 96 && ran <= 98){
+					num = 3;
+				}else if(ran >= 98 && ran <= 100){
+					num = 4;
+				}
+				if(i == 1 && j == 9 && gScore < tScore){
+					System.out.print("x");
+				}else{
+					System.out.print(num);
+				}
+				if(i == 0){
+					gScore += num;
+				}else if(i == 1){
+					tScore += num;
+				}
+				if(j % 3 == 0){
+					System.out.print("|");
+				}
+			}
+			if(i == 0){
+				System.out.print(gScore);
+				System.out.println();
+			}
+		}
+		System.out.println(tScore);
+	}
+}
+//11/9-1
+public class MatudaQ{
+	public static void main(String[] args){
+		int total = 0;
+		for(int i = 0;i < 3;i++){
+			System.out.println(i+1+"回目");
+			int ran = new java.util.Random().nextInt(100)+1;
+				System.out.println(ran);
+			if(ran == 1){
+				System.out.println("1000万円");
+				total += 10000000;
+			}else if(ran <= 3){
+				System.out.println("100万円");
+				total += 1000000;
+			}else if(ran <= 6){
+				System.out.println("10万円");
+				total += 100000;
+			}else if(ran <= 10){
+				System.out.println("1万円");
+				total += 10000;
+			}else if(ran <= 20){
+				System.out.println("1000円");
+				total += 1000;
+			}else if(ran <= 40){
+				System.out.println("100円");
+				total += 100;
+			}else{
+				System.out.println("ハズレ");
+			}
+		}
+		System.out.println("獲得賞金は");
+		System.out.printf("%,d円でした！%n",total);
+	}
+}
+//11/10-1
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		System.out.print("手を入力0.グー、1.チョキ、2.パー>");
+		int youHand = new Scanner(System.in).nextInt();
+		int pcHand = new Random().nextInt(3);
+		String[] hands = {"グー","チョキ","パー"};
+		System.out.println("PCは"+ hands[pcHand]);
+		if(youHand == pcHand){
+			System.out.println("あいこです");
+		}else if(youHand == pcHand - 1 || youHand == pcHand + 2){
+			System.out.println("あなたの勝ちです！");
+		}else(pcHand == youHand - 1 || pcHand == youHand + 2){
+			System.out.println("あなたの負けです");
+		}
+	}
+}
+//11/10-2
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		int[] balls = {1,2,3,4,5,};
+		for(int i = 0; i < balls.length; i++){
+			int index = new Random().nextInt(balls.length-i);
+			int ball = balls[index];
+			balls[index] = balls[balls.length-1-i];
+			balls[balls.length-1-i] = ball;
+			System.out.println(ball);
+		}
+	}
+}
+//11/10-3
+import java.util.*;
+import java.util.Arrays;
+public class MatudaQ{
+	public static void main(String[] args){
+		int[] nums = new int[10];
+		for(int i = 0; i < nums.length; i++){
+			nums[i] = new Random().nextInt(6)+1;
+		}
+		System.out.println(Arrays.toString(nums));
+	}
+}
+//11/10-4
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		int[] nums = new int[5];
+		for(int i = 0; i < nums.length; i++){
+			nums[i] = new Random().nextInt(101);
+			System.out.printf("nums[%d]:%d%n",i,nums[i]);
+		}
+	}
+}
+//11/10-5
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		System.out.println("***nums1***");
+		int[] nums1 = new int[5];
+		for(int i = 0; i < nums1.length; i++){
+			nums1[i] = new Random().nextInt(100)+1;
+			System.out.println(nums1[i]);
+		}
+		System.out.println("***nums2***");
+		for(int i = 0; i < nums1.length; i++){
+			int[] nums2 = new int[nums1.length];
+			nums2[i] = nums1[i] * 3;
+			System.out.println(nums2[i]);
+		}
+	}
+}
 //11/10さくっとJava
 public class MatudaQ{
 	public static void main(String[] args){
@@ -381,6 +555,14 @@ public class MatudaQ{
 		}
 	}
 }
+*/
+//11/11-1
+public class MatudaQ{
+	public static void main(String[] args){
+
+	}
+}
+/*
 //11/11さくっとJava
 import java.util.*;
 public class MatudaQ{
@@ -396,6 +578,92 @@ public class MatudaQ{
 			x[i] = score;
 		}
 		System.out.println(Arrays.toString(x));
+	}
+}
+//11-16-1
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		int[][] data = new int[3][4];
+		for(int i = 0; i < data.length; i++){
+			for(int j = 0; j < data[i].length; j++){
+				data[i][j] = new Random().nextInt(100)+1;
+				System.out.printf("%4d",data[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+//11-16-2
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		System.out.print("何クラス>");
+		int classNum = new Scanner(System.in).nextInt();
+		int[][] nums = new int[classNum][];
+		for(int i = 0; i < nums.length; i++){
+			System.out.printf("クラス%dは何人>",i+1);
+			int studentNum = new Scanner(System.in).nextInt();
+			nums[i] = new int[studentNum];
+			for(int j = 0; j < nums[i].length; j++){
+				System.out.printf("%d人目の点数>",j+1);
+				int score = new Scanner(System.in).nextInt();
+				nums[i][j] = score;
+			}
+		}
+		System.out.println("---結果---");
+		for(int i = 0; i < nums.length; i++){
+			for(int j = 0; j < nums[i].length; j++){
+				System.out.printf("%4d",nums[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		String[] items = {"いつ","誰が","どこで","何をした",};
+		String[][] data = new String[items.length][];
+		for(int i = 0; i < data.length; i++){
+			System.out.printf("%sはいくつ>",items[i]);
+			int count = new Scanner(System.in).nextInt();
+			data[i] = new String[count];
+			for(int j = 0; j < data[i].length; j++){
+				System.out.printf("%sをいれて>",items[i]);
+				data[i][j] = new Scanner(System.in).nextLine();
+				//data[i][j] = word;
+			}
+		}
+		for(int i = 0; i < data.length; i++){
+			int index = new Random().nextInt(data[i].length);
+			System.out.printf(data[i][index]);
+		}
+		System.out.println();
+	}
+}
+*/
+/*
+import java.util.*;
+public class MatudaQ{
+	public static void main(String[] args){
+		System.out.println("--掛け算表--");
+		System.out.print("n(1~9)?>");
+		int n = new Scanner(System.in).nextInt();
+		int[][]nums = new int[n][9];
+		for(int i = 0; i < nums.length; i++){
+			for(int j = 0; j < nums[i].length; j++){
+				nums[i][j] = (i+1) * (j+1);
+//				System.out.printf("%4d|",nums[i][j]);
+			}
+//			System.out.println();
+		}
+		for(int i = 0; i < nums.length; i++){
+			for(int j = 0; j < nums[i].length; j++){
+				System.out.printf("%4d|",nums[i][j]);
+			}
+			System.out.println();
+		}
 	}
 }
 */
