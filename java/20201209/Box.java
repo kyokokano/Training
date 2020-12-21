@@ -4,32 +4,26 @@ public class Box{
 	private int num;
 	private static int totalNumber;
 	public Box(String color,String shape,int num){
-		this.color = color;
-		this.shape = shape;
-		this.num = num;
-		totalNumber += num;
+		this.color=color;
+		this.shape=shape;
+		this.num=num;
+		totalNumber+=num;
 	}
-	public void insertBalls(int num){
-		this.num += num;
-		totalNumber += num;
+	public void insertBalls(int ball){
+		this.num+=ball;
+		totalNumber+=ball;
+		System.out.println(ball+"個のボールを入れました。");
 	}
-	public int removeBalls(int num){
-		if(this.num < num){
-			int temp = this.num;
-			this.num = 0;
-			totalNumber -= temp;
-			return temp;
-		}else{
-			this.num -= num;
-			totalNumber -= num;
-			return num;
-		}
+	public void removeBalls(int ball){
+		int n=this.num<ball ? this.num:ball;
+		this.num-=n;
+		totalNumber-=n;
+		System.out.println(n+"個のボールを取り出しました。");
 	}
-	public String displayInfo(int num){
-		String str = num+"---色："+this.color+", 形："+this.shape+", 個数："+this.num;
-		return str;
+	public void displayInfo(int n){
+		System.out.println(n+"---色:"+this.color+",形:"+this.shape+",個数:"+this.num);
 	}
-	static void displayTotalNumber(){
-		System.out.println("ボールの合計は"+totalNumber+"個です。");
+	public static int displayTotalNumber(){//staticフィールドなのでstaticメソッド
+		return totalNumber;
 	}
 }

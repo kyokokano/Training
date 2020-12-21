@@ -1,0 +1,32 @@
+div{
+	width:960px;
+	height:500px;
+	background:#eee;
+	margin:0 auto;/*自身のセンタリング*/
+	display:flex;
+	justify-content:center;/*直下の子要素に対して横にセンタリング*/
+	align-items:center;/*直下の子要素に対して縦にセンタリング*/
+}
+p{
+	width:600px;
+	height:300px;
+	background:yellow;
+	text-align:center;
+	line-height:300px;
+	font-size:60px;
+	position:relative;
+}
+span{
+	display:block;/*span使うときは一応*/
+	width:100px;
+	height:100px;
+	background:red;
+	position:absolute;/*絶対配置*/
+	top:-50px;/*絶対配置*/
+	left:-50px;/*絶対配置*/
+	border-radius:50%;
+	color:white;
+	font-size:16px;
+	text-align:center;
+	line-height:100px;
+}

@@ -1,0 +1,14 @@
+div{
+	width:960px;
+	height:500px;
+	margin:0 auto;/*ここまでの３行テンプレ*/
+	background:#eee;
+	display:flex;/*横並び*/
+	justify-content:space-around;/*均等に配置*/
+	align-items:center;/*縦軸が中央に*/
+}
+img{
+	width:200px;
+	height:200px;
+	border-radius:50%;/*画像を丸くする*/
+}

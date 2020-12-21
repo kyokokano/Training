@@ -1,6 +1,7 @@
 public class SuperHero extends Hero{
 	boolean flying;
 	public SuperHero(){
+		super();//書かなくても暗黙に挿入される（書いてもOK表示）
 		System.out.println("SuperHeroコンストラクタ");
 	}
 	public void fly(){
